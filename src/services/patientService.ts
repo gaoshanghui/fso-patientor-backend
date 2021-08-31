@@ -10,6 +10,10 @@ const patientsEntries = patientsData.map((obj) => {
   return object;
 });
 
+const getEntries = (): Patient[] => {
+  return patientsEntries;
+};
+
 const getNonSensitiveEntries = (): Omit<Patient, 'ssn'>[] => {
   return patientsEntries.map((entry) => ({
     id: entry.id,
@@ -32,6 +36,7 @@ const addPatient = (newPatientEntry: NewPatient): Patient => {
 };
 
 export default {
+  getEntries,
   getNonSensitiveEntries,
   addPatient,
 };

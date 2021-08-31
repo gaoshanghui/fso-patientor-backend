@@ -9,7 +9,7 @@ router.get('/', (_req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  const patientEntries = patientService.getNonSensitiveEntries();
+  const patientEntries = patientService.getEntries();
 
   try {
     const foundPatient = patientEntries.find((entry) => {
