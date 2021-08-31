@@ -1,8 +1,14 @@
 import patientsData from '../../data/patients.json';
 import { Patient, NewPatient } from '../types';
 import { v1 as uuid } from 'uuid';
+import toNewPatientEntry from '../utils';
 
-const patientsEntries: Array<Patient> = patientsData;
+// const patientsEntries: Array<Patient> = patientsData.map((obj) => {
+const patientsEntries = patientsData.map((obj) => {
+  const object = toNewPatientEntry(obj) as Patient;
+  object.id = obj.id;
+  return object;
+});
 
 const getNonSensitiveEntries = (): Omit<Patient, 'ssn'>[] => {
   return patientsEntries.map((entry) => ({
@@ -11,6 +17,7 @@ const getNonSensitiveEntries = (): Omit<Patient, 'ssn'>[] => {
     dateOfBirth: entry.dateOfBirth,
     gender: entry.gender,
     occupation: entry.occupation,
+    entries: entry.entries,
   }));
 };
 

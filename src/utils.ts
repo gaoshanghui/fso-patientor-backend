@@ -9,6 +9,7 @@ const isDate = (date: string): boolean => {
   return Boolean(Date.parse(date));
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isGender = (param: any): param is Gender => {
   return Object.values(Gender).includes(param);
 };
@@ -58,6 +59,7 @@ const parseOccupation = (occupation: unknown): string => {
   return occupation;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const toNewPatientEntry = (object: any): NewPatient => {
   const newEntry: NewPatient = {
     name: parseName(object.name),
@@ -65,6 +67,7 @@ const toNewPatientEntry = (object: any): NewPatient => {
     ssn: parseSsn(object.ssn),
     gender: parseGender(object.gender),
     occupation: parseOccupation(object.occupation),
+    entries: [],
   };
 
   return newEntry;
