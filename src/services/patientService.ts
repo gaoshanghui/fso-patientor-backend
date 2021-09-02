@@ -1,9 +1,9 @@
-import patientsData from '../../data/patients.json';
+// import patientsData from '../../data/patients.json';
+import patientsData from '../../data/patients';
 import { Patient, NewPatient } from '../types';
 import { v1 as uuid } from 'uuid';
 import toNewPatientEntry from '../utils';
 
-// const patientsEntries: Array<Patient> = patientsData.map((obj) => {
 const patientsEntries = patientsData.map((obj) => {
   const object = toNewPatientEntry(obj) as Patient;
   object.id = obj.id;
