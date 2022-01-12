@@ -1,10 +1,7 @@
-import diagnosesData from '../../data/diagnoses.json';
-import { Diagnose } from '../types';
+// Service: handle data maniputation
+import { DiagnoseEntry } from '../types';
+import diagnosesData from '../../data/diagnoses';
 
-const diagnosesEntries: Array<Diagnose> = diagnosesData;
-
-const getDiagnosesEntries = (): Array<Diagnose> => {
-  return diagnosesEntries;
+export const getEntries = (): DiagnoseEntry[] => {
+  return diagnosesData;
 };
-
-export default { getDiagnosesEntries };
